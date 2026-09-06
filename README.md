@@ -57,3 +57,6 @@ Password: `admin1234`
 This is a frontend project created for learning and demonstration purposes.
 
 Authentication, payments and data storage are currently handled on the frontend using `localStorage`. A backend and database would be needed for a real production system.
+
+**Live Demo:**
+https://sac-2.vercel.app/
