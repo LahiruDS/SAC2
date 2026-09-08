@@ -466,10 +466,137 @@ img {
   object-position: left center;
   display: block;
 }
+
+@media (max-width: 920px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    order: -1;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .hero-mini {
+    position: static;
+    margin-top: 18px;
+  }
+
+  .hero-mini.m1,
+  .hero-mini.m2 {
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
+
+  .hero-mini.m1 { left: 0; }
+  .hero-mini.m2 { right: 0; }
+}
+
 @media (max-width: 768px) {
+  .container {
+    width: min(100% - 24px, 1120px);
+  }
+
+  .section {
+    padding: 68px 0;
+  }
+
+  .section-tight {
+    padding: 38px 0;
+  }
+
   .logo-image {
     width: 150px;
     height: 46px;
+  }
+
+  .hero {
+    padding: 72px 0 80px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .course-grid,
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-band {
+    padding: 42px 22px;
+  }
+
+  .session-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .paper-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .auth-box {
+    margin: 24px auto;
+    padding: 24px 18px;
+  }
+
+  .flex {
+    flex-wrap: wrap;
+  }
+
+  .flex-between {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-inner {
+    height: 62px;
+  }
+
+  .nav-burger {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .hero-text {
+    font-size: 0.98rem;
+  }
+
+  .feature-card,
+  .plan-card,
+  .testi-card,
+  .card,
+  .step-card,
+  .paper-card {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -542,21 +669,6 @@ img {
 .hero-mini span {
   font-size: 0.78rem;
   color: var(--muted);
-}
-
-@media (max-width: 920px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-visual {
-    order: -1;
-    max-width: 480px;
-    margin-inline: auto;
-  }
-
-  .hero-mini.m1 { left: 0; }
-  .hero-mini.m2 { right: 0; }
 }
 
 /* ---------- Features ---------- */
