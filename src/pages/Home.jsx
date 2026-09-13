@@ -464,7 +464,7 @@ export default function Home() {
           <div className="cta-band">
             <h2>Ready to master Chemistry?</h2>
             <p>
-              Join 2,600+ students who trust SAC Labs for their exam preparation.
+              Join 2,60+ students who trust SAC Labs for their exam preparation.
               Start with a free lesson today.
             </p>
             <div className="hero-cta" style={{ justifyContent: 'center' }}>
