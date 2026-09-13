@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight,
@@ -83,7 +84,80 @@ const steps = [
   },
 ]
 
+const reviewColors = ['#7c3aed', '#0d9488', '#ec4899', '#f59e0b', '#2563eb', '#ef4444']
+
+const buildInitials = (name) => {
+  const parts = name
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+
+  return parts.map((part) => part[0]?.toUpperCase() ?? '').join('') || 'ST'
+}
+
 export default function Home() {
+  const [reviews, setReviews] = useState(() => {
+    if (typeof window === 'undefined') return TESTIMONIALS
+
+    try {
+      const saved = JSON.parse(localStorage.getItem('sac-student-reviews') || 'null')
+      return Array.isArray(saved) && saved.length ? saved : TESTIMONIALS
+    } catch {
+      return TESTIMONIALS
+    }
+  })
+
+  const [formData, setFormData] = useState({
+    name: '',
+    role: '',
+    stars: 5,
+    text: '',
+  })
+
+  const [statusMessage, setStatusMessage] = useState('')
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('sac-student-reviews', JSON.stringify(reviews))
+    }
+  }, [reviews])
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: name === 'stars' ? Number(value) : value,
+    }))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    const name = formData.name.trim()
+    const role = formData.role.trim() || 'Student'
+    const text = formData.text.trim()
+
+    if (!name || !text) {
+      setStatusMessage('Please add your name and a short review before posting.')
+      return
+    }
+
+    const newReview = {
+      name,
+      role,
+      initials: buildInitials(name),
+      color: reviewColors[Math.floor(Math.random() * reviewColors.length)],
+      stars: Number(formData.stars) || 5,
+      text,
+    }
+
+    setReviews((prev) => [newReview, ...prev])
+    setFormData({ name: '', role: '', stars: 5, text: '' })
+    setStatusMessage('Thank you! Your review has been added to the student feedback section.')
+  }
+
   return (
     <>
       {/* HERO */}
@@ -298,9 +372,73 @@ export default function Home() {
             <span className="eyebrow">Student Love</span>
             <h2 className="h2">What our students say</h2>
           </div>
+
+          <form className="card review-form mt-4" onSubmit={handleSubmit}>
+            <div className="review-form-header">
+              <h3>Share your experience</h3>
+              <p>Tell future students what SAC Labs helped you improve.</p>
+            </div>
+
+            <div className="review-form-grid">
+              <div className="field">
+                <label htmlFor="review-name">Your name</label>
+                <input
+                  id="review-name"
+                  name="name"
+                  type="text"
+                  placeholder="Enter your full name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="field">
+                <label htmlFor="review-role">Role / Course</label>
+                <input
+                  id="review-role"
+                  name="role"
+                  type="text"
+                  placeholder="A/L Student · Colombo"
+                  value={formData.role}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            <div className="field">
+              <label htmlFor="review-stars">Rating</label>
+              <select id="review-stars" name="stars" value={formData.stars} onChange={handleChange}>
+                <option value={5}>5 stars</option>
+                <option value={4}>4 stars</option>
+                <option value={3}>3 stars</option>
+                <option value={2}>2 stars</option>
+                <option value={1}>1 star</option>
+              </select>
+            </div>
+
+            <div className="field">
+              <label htmlFor="review-text">Your review</label>
+              <textarea
+                id="review-text"
+                name="text"
+                rows="4"
+                placeholder="I improved my chemistry marks because..."
+                value={formData.text}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="review-form-actions">
+              <button type="submit" className="btn btn-primary">
+                Post review
+              </button>
+              {statusMessage ? <span className="review-status">{statusMessage}</span> : null}
+            </div>
+          </form>
+
           <div className="grid-3 mt-4">
-            {TESTIMONIALS.map((t) => (
-              <div className="card testi-card" key={t.name}>
+            {reviews.map((t, index) => (
+              <div className="card testi-card" key={`${t.name}-${index}`}>
                 <div className="stars">
                   {'★'.repeat(t.stars)}
                 </div>

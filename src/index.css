@@ -811,6 +811,45 @@ img {
 }
 
 /* ---------- Testimonials ---------- */
+.review-form {
+  padding: 28px;
+  margin-top: 26px;
+}
+
+.review-form-header {
+  margin-bottom: 18px;
+}
+
+.review-form-header h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+.review-form-header p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.review-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.review-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.review-status {
+  font-size: 0.82rem;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
 .testi-card {
   padding: 24px;
   display: flex;
