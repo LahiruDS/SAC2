@@ -1,6 +1,6 @@
-# StackLabs 🧪
+# SAC-Labs 🧪
 
-StackLabs is a chemistry learning website made for Sri Lankan students.
+SAC-Labs is a chemistry learning website made for Sri Lankan students.
 
 Students can watch chemistry video lessons, access past papers, take quizzes, and track their learning progress.
 
