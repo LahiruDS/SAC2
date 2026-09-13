@@ -275,4 +275,4 @@ export const PAPERS = []
 
 export const QUIZZES = []
 
-export const TESTIMONIALS = []
+export const TESTIMONIALS = [ ]
