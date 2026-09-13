@@ -5,7 +5,7 @@ export const SITE = {
     'SAC Labs is a chemistry learning platform for Sri Lankan students — HD video sessions, past papers and interactive quizzes, all in one place.',
   social: {
     facebook: 'https://www.facebook.com/yourpage',
-    whatsapp: 'https://wa.me/94704197762',
+    whatsapp: ' https://wa.me/94704197762',
     instagram: 'https://www.instagram.com/yourpage',
   },
   contact: {
