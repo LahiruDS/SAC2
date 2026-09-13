@@ -275,29 +275,4 @@ export const PAPERS = []
 
 export const QUIZZES = []
 
-export const TESTIMONIALS = [
-  {
-    name: 'Sanduni Perera',
-    role: 'A/L Student · Colombo',
-    initials: 'SP',
-    color: '#7c3aed',
-    stars: 5,
-    text: 'Chemistry was my worst subject until I found SAC Labs. The video lessons are short, clear and actually fun. I improved from a C to an A in just one term!',
-  },
-  {
-    name: 'Kavindu Silva',
-    role: 'A/L Student · Kandy',
-    initials: 'KS',
-    color: '#0d9488',
-    stars: 5,
-    text: 'The past paper walk-throughs are a lifesaver. Being able to pay monthly and access everything is super convenient for a student budget.',
-  },
-  {
-    name: 'Nethmi Fernando',
-    role: 'O/L Student · Galle',
-    initials: 'NF',
-    color: '#ec4899',
-    stars: 5,
-    text: 'I love the quizzes! I can test myself right after each video and see my score instantly. My school results have never been better.',
-  },
-]
+export const TESTIMONIALS = []
