@@ -58,6 +58,7 @@ export default function Footer() {
             <div className="footer-links">
               <p>Address: No.19, Market building, Ja-Ela, Sri Lanka.</p>
               <a href="mailto:saclabs@gmail.com">Email: saclabs@gmail.com</a>
+              <a href="tel:+9411225626">Phone: +94 11 225 626</a>
               <a href="tel:+94704197762">Phone: +94 70 419 7762</a>
               <a href="https://wa.me/94704197762" target="_blank" rel="noopener noreferrer">
                 WhatsApp us
