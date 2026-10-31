@@ -73,7 +73,7 @@ export default function Footer() {
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} SAC Labs. All rights reserved.</span>
           <span>
-            Designed by Lahiru De Silva for SAC Labs.
+            Designed by <a href="https://www.linkedin.com/in/lahiru-de-silva-86b0b1329/" target="_blank" rel="noopener noreferrer">Lahiru De Silva</a> for SAC Labs.
           </span>
         </div>
       </div>

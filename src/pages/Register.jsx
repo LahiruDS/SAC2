@@ -160,7 +160,7 @@ export default function Register() {
             {/* Email */}
             <div className="field">
               <label>
-                Email
+                Email Address
               </label>
 
               <input
